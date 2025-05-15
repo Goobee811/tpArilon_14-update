@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arilon Insecticide | Syngenta PPM Việt Nam</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green: #009639; /* Syngenta green */
+        --olive: #6b8018; /* tab underline */
+        --blue-card: #4f94d4; /* Product info background */
+        --gray-100: #f8f8f8;
+        --gray-300: #e0e0e0;
+        --text-dark: #222;
+        --text-light: #666;
+        --radius: 4px;
+        --max-width: 1200px;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-dark);
+        background: #fff;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ───────── TOP STRIP ───────── */
+      .top-strip {
+        background: #000;
+        color: #fff;
+        font-size: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.35rem 0.75rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .top-strip nav {
+        display: flex;
+        gap: 1.25rem;
+      }
+
+      /* ───────── MAIN HEADER ───────── */
+      header {
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--gray-300);
+        position: fixed;
+        top: 22px;
+        width: 100%;
+        z-index: 999;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .brand img {
+        height: 32px;
+      }
+
+      /* ───────── PRIMARY NAV ───────── */
+      .primary-nav {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .primary-nav a {
+        padding: 0.25rem 0;
+        position: relative;
+      }
+
+      .primary-nav a:hover:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        background: var(--green);
+      }
+
+      /* ───────── BREADCRUMB ───────── */
+      .breadcrumb {
+        font-size: 0.8rem;
+        margin: 110px auto 0;
+        max-width: var(--max-width);
+        padding: 0 1rem;
+        color: var(--text-light);
+      }
+
+      .breadcrumb span {
+        margin-right: 0.25rem;
+      }
+
+      /* ───────── PRODUCT HERO CARD ───────── */
+      .hero-card {
+        max-width: var(--max-width);
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .hero-card .logo-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--blue-card);
+        border-radius: var(--radius);
+        min-height: 280px;
+        background: #fff;
+        position: relative;
+      }
+
+      .hero-card .logo-box img {
+        max-width: 260px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .thumbnail-nav {
+        position: absolute;
+        bottom: 10px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .thumbnail {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--gray-300);
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: all 0.2s;
+      }
+
+      .thumbnail:hover,
+      .thumbnail.active {
+        opacity: 1;
+        border-color: var(--green);
+      }
+
+      .hero-card .info-box {
+        background: var(--blue-card);
+        color: #fff;
+        border-radius: var(--radius);
+        padding: 1.5rem;
+      }
+
+      .info-box h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .status {
+        display: inline-block;
+        background: #009fe3;
+        color: #fff;
+        font-size: 0.7rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+
+      .info-table {
+        font-size: 0.9rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0.75rem;
+      }
+
+      .info-table span {
+        display: block;
+      }
+
+      /* ───────── TAB BAR ───────── */
+      .tabs {
+        background: #fff;
+        position: sticky;
+        top: 70px;
+        border-bottom: 1px solid var(--gray-300);
+        z-index: 998;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .tabs.scrolled {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .tabs nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        padding: 0 1rem;
+        scrollbar-width: thin;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .tabs nav::-webkit-scrollbar {
+        height: 4px;
+        display: none; /* Chrome, Safari */
+      }
+
+      .tabs nav::-webkit-scrollbar-thumb {
+        background-color: var(--gray-300);
+        border-radius: 4px;
+      }
+
+      .tabs button {
+        background: none;
+        border: none;
+        padding: 0.9rem 0;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 1rem;
+        white-space: nowrap;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .tabs button.active,
+      .tabs button:focus {
+        border-color: var(--olive);
+        color: var(--olive);
+      }
+
+      /* ───────── CONTENT SECTIONS ───────── */
+      .section {
+        max-width: var(--max-width);
+        margin: 2rem auto;
+        padding: 0 1rem;
+        display: none;
+        animation: fade 0.4s forwards;
+      }
+
+      .section.active {
+        display: block;
+      }
+
+      /* Đảm bảo vị trí section không bị che khi cuộn */
+      .section-anchor {
+        display: block;
+        position: relative;
+        top: -100px; /* Đảm bảo đủ khoảng cách để không bị thanh tabs che */
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      h2.section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      h2.section-title:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 48px;
+        height: 2px;
+        background: var(--olive);
+      }
+
+      .subsection-title {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0.75rem;
+        color: var(--olive);
+      }
+
+      .bullet {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+        list-style: disc;
+      }
+
+      .bullet li {
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight {
+        font-weight: bold;
+        color: var(--olive);
+      }
+
+      .advantage {
+        color: var(--olive);
+        font-weight: 500;
+      }
+
+      /* ───────── DOWNLOAD BOX ───────── */
+      .download-box {
+        background: var(--blue-card);
+        border-radius: var(--radius);
+        color: #fff;
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .download-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .download-item:last-child {
+        border-bottom: none;
+      }
+
+      .download-item a {
+        color: #fff;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* ───────── DATA TABLE ───────── */
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0 2rem;
+      }
+
+      .data-table th {
+        background: var(--gray-100);
+        text-align: left;
+        padding: 0.75rem 1rem;
+        font-weight: 600;
+        border: 1px solid var(--gray-300);
+      }
+
+      .data-table td {
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--gray-300);
+      }
+
+      .data-table tr:nth-child(even) td {
+        background: var(--gray-100);
+      }
+
+      /* ───────── FEATURE CARDS ───────── */
+      .feature-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .feature-card {
+        border: 1px solid var(--gray-300);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        background: var(--gray-100);
+        height: 100%;
+      }
+
+      .feature-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: var(--olive);
+      }
+
+      .feature-card p {
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ───────── USER GROUP ───────── */
+      .user-group {
+        margin-bottom: 2.5rem;
+      }
+
+      .user-group h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .user-group-description {
+        font-style: italic;
+        margin-bottom: 1rem;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1rem;
+      }
+
+      .benefit-card {
+        border: 1px solid var(--gray-300);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        height: 100%;
+      }
+
+      .benefit-card h4 {
+        margin-bottom: 0.75rem;
+        color: var(--olive);
+      }
+
+      /* ───────── PROCESS STEPS ───────── */
+      .process {
+        margin-bottom: 2.5rem;
+      }
+
+      .process-name {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .step {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: var(--olive);
+        color: white;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .step-content {
+        flex-grow: 1;
+      }
+
+      .step-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ───────── ENVIRONMENTS ───────── */
+      .environments-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.25rem;
+        margin: 1.5rem 0;
+      }
+
+      .environment-card {
+        border: 1px solid var(--gray-300);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        background: var(--gray-100);
+        height: 100%;
+      }
+
+      .environment-card h4 {
+        margin-bottom: 0.75rem;
+        color: var(--olive);
+      }
+
+      /* ───────── FAQ ───────── */
+      .faq-item {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid var(--gray-300);
+        padding-bottom: 1.5rem;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+      }
+
+      /* ───────── EVIDENCE ───────── */
+      .research-item {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--gray-300);
+      }
+
+      .research-item:last-child {
+        border-bottom: none;
+      }
+
+      .research-name {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      /* ───────── SUPPORT ───────── */
+      .contact-info {
+        margin: 1.5rem 0;
+      }
+
+      .contact-item {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-icon {
+        width: 24px;
+        text-align: center;
+      }
+
+      /* ───────── REFERENCES ───────── */
+      .references-list {
+        margin-top: 1rem;
+      }
+
+      .reference-item {
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--gray-300);
+      }
+
+      .reference-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+      }
+
+      .reference-toggle {
+        font-size: 1.5rem;
+        width: 20px;
+      }
+
+      .reference-content {
+        padding-left: 30px;
+        margin-top: 0.75rem;
+        display: none;
+      }
+
+      .reference-content.active {
+        display: block;
+      }
+
+      /* ───────── RELATED PRODUCTS ───────── */
+      .related {
+        max-width: var(--max-width);
+        margin: 3rem auto;
+        padding: 0 1rem;
+      }
+
+      .card-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .product-card {
+        border: 1px solid var(--gray-300);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .product-card:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3px);
+      }
+
+      .product-card-image {
+        height: 160px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--gray-100);
+        border-bottom: 1px solid var(--gray-300);
+      }
+
+      .product-card-image img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+      }
+
+      .product-card-content {
+        padding: 1rem;
+      }
+
+      .product-card-category {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: var(--text-light);
+        margin-bottom: 0.25rem;
+      }
+
+      .product-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-card-specs {
+        font-size: 0.85rem;
+        color: var(--text-light);
+        margin-bottom: 0.75rem;
+      }
+
+      .product-card-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--olive);
+        font-weight: 600;
+        font-size: 0.9rem;
+        gap: 0.25rem;
+      }
+
+      /* ───────── FOOTER ───────── */
+      footer {
+        background: #111;
+        color: #fff;
+        margin-top: 3rem;
+      }
+
+      .footer-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 3rem 1rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-col h3:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 40px;
+        height: 2px;
+        background: var(--blue-card);
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-contact {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background: var(--green);
+      }
+
+      .copyright {
+        text-align: center;
+        padding: 1.5rem;
+        background: #000;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 0.75rem;
+      }
+
+      /* ───────── ANIMATIONS ───────── */
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* ───────── RESPONSIVE ───────── */
+      @media (max-width: 768px) {
+        .hero-card {
+          grid-template-columns: 1fr;
+        }
+
+        .info-table {
+          grid-template-columns: 1fr;
+        }
+
+        .tabs nav {
+          gap: 1rem;
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-cards,
+        .benefits-grid,
+        .environments-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top utility strip -->
+    <div class="top-strip">
+      <span>GIỚI THIỆU</span>
+      <nav>
+        <a href="#">TÌM KIẾM</a>
+        <a href="#">SYNGENTA TOÀN CẦU</a>
+        <a href="#">ĐĂNG NHẬP</a>
+        <a href="#">VI ▾</a>
+      </nav>
+    </div>
+
+    <!-- Main header -->
+    <header>
+      <div class="brand">
+        <img src="https://i.imgur.com/dsdO1gC.png" alt="PPM logo" />
+        <img src="https://i.imgur.com/XaqXJws.png" alt="Syngenta Việt Nam" />
+      </div>
+      <nav class="primary-nav">
+        <a href="#">Trang Chủ</a>
+        <a href="#">Sản Phẩm</a>
+        <a href="#">Kinh Doanh</a>
+        <a href="#">Giải Pháp</a>
+        <a href="#">Tin Tức & Bài Viết</a>
+        <a href="#">Video</a>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <span>TRANG CHỦ / SẢN PHẨM / THUỐC TRỪ SÂU /</span>
+      <strong>ARILON INSECTICIDE</strong>
+    </div>
+
+    <!-- Product hero card -->
+    <section class="hero-card">
+      <div class="logo-box">
+        <img
+          src="https://placehold.co/400x150/e2e8f0/9ca3af?text=Arilon+Insecticide"
+          alt="Arilon Insecticide"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="thumbnail-nav">
+          <div class="thumbnail active"></div>
+          <div class="thumbnail"></div>
+          <div class="thumbnail"></div>
+        </div>
+      </div>
+      <div class="info-box">
+        <h1>ARILON INSECTICIDE</h1>
+        <span class="status">Đang bán</span>
+        <div class="info-table">
+          <span><strong>Cập nhật:</strong> 09/05/2025</span>
+          <span><strong>Quy cách:</strong> Hũ 200g</span>
+          <span><strong>Số đăng ký:</strong><br />VNDP-HC-124-09-17</span>
+          <span><strong>Nhóm hóa chất:</strong> Oxadiazine</span>
+          <span><strong>Thành phần:</strong><br />20% w/w Indoxacarb</span>
+          <span><strong>Công thức:</strong> Hạt phân tán trong nước (WDG)</span>
+          <span><strong>Nhóm tác động:</strong> IRAC 22A</span>
+          <span
+            ><strong>Cơ chế tác động:</strong> Tác động lên thần kinh côn
+            trùng</span
+          >
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem">
+          Giải pháp toàn diện cho gián, kiến, ruồi với hiệu quả lan truyền duy
+          nhất trên thị trường
+        </p>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <div class="tabs" id="tabNav">
+      <nav>
+        <button class="tab-link active" data-target="overview">
+          Tổng Quan
+        </button>
+        <button class="tab-link" data-target="application">Ứng Dụng</button>
+        <button class="tab-link" data-target="documents">Tài Liệu</button>
+      </nav>
+    </div>
+
+    <!-- TAB 1: TỔNG QUAN -->
+    <section id="overview" class="section active">
+      <span class="section-anchor" id="anchor-overview"></span>
+      <div id="technology">
+        <h2 class="section-title">Công Nghệ Độc Đáo</h2>
+        <p>
+          <strong>Arilon Insecticide</strong> tạo ra
+          <span class="highlight">giải pháp đột phá</span> cho môi trường nhà
+          hàng, cơ sở chế biến thực phẩm. Công nghệ MetaActive™ độc quyền mang
+          đến cách tiếp cận cách mạng trong kiểm soát côn trùng gây hại. Cơ chế
+          hoạt hóa sinh học biến "tiền chất" an toàn thành hợp chất diệt côn
+          trùng cực mạnh khi tiếp xúc với enzym đặc thù của côn trùng mục tiêu.
+        </p>
+        <blockquote
+          style="
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border-left: 4px solid var(--olive);
+            background: var(--gray-100);
+          "
+        >
+          <p style="font-style: italic">
+            Công nghệ MetaActive™ của Indoxacarb đánh dấu bước tiến vượt bậc
+            trong khoa học kiểm soát côn trùng, hiệu quả với các quần thể kháng
+            thuốc đồng thời mang lại độ an toàn cao hơn đáng kể cho người sử
+            dụng và môi trường.
+          </p>
+        </blockquote>
+      </div>
+
+      <div id="workflow">
+        <h2 class="section-title">Cách Thức Hoạt Động</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">Tiếp xúc và xâm nhập</div>
+              <p>
+                Côn trùng tiếp xúc với Arilon thông qua tiếp xúc trực tiếp hoặc
+                ăn phải thức ăn có nhiễm thuốc trên bề mặt đã xử lý. Indoxacarb
+                xâm nhập vào cơ thể côn trùng.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">Kích hoạt sinh học</div>
+              <p>
+                Enzym esterases/amidases trong cơ thể côn trùng chuyển đổi
+                Indoxacarb thành dạng hoạt tính DCJW (N-decarbomethoxylated)
+                thông qua quá trình loại bỏ nhóm carbomethoxy.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Ức chế kênh natri</div>
+              <p>
+                DCJW liên kết mạnh với kênh natri của hệ thần kinh côn trùng,
+                "khóa" chúng ở trạng thái không dẫn điện và ngăn chúng trở lại
+                trạng thái nghỉ.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-title">Ngừng hoạt động và tử vong côn trùng</div>
+              <p>
+                Côn trùng ngừng ăn, mất khả năng vận động và sau đó chết, thường
+                trong vòng 24-96 giờ, tạo thời gian để côn trùng nhiễm thuốc
+                mang hoạt chất về nơi ẩn nấp.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Quá trình kích hoạt sinh học này tạo ra ba ưu điểm độc đáo:
+          <span class="advantage">không xua đuổi côn trùng</span>,
+          <span class="advantage">hiệu ứng lan truyền trong quần thể</span>, và
+          <span class="advantage"
+            >độc tính chọn lọc cao chỉ đối với côn trùng đích</span
+          >.
+        </p>
+      </div>
+
+      <div id="features">
+        <h2 class="section-title">Đặc Tính Nổi Bật</h2>
+        <div class="feature-cards">
+          <div class="feature-card">
+            <h4>Cơ chế chuyển đổi sinh học độc đáo</h4>
+            <p>
+              <strong>Thông số kỹ thuật:</strong> Hoạt chất Indoxacarb 20% cần
+              được chuyển đổi sinh học bởi enzym đặc thù của côn trùng để tạo ra
+              chất chuyển hóa DCJW có hoạt tính diệt côn trùng cao.
+            </p>
+            <p>
+              <strong>Lợi ích cho người dùng:</strong> Tính an toàn cao cho
+              người và động vật có vú do sự khác biệt về enzym chuyển hóa, tạo
+              biên độ an toàn gấp 1000 lần giữa côn trùng và động vật có vú.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h4>Không xua đuổi côn trùng</h4>
+            <p>
+              <strong>Thông số kỹ thuật:</strong> Côn trùng không phát hiện được
+              Arilon khi được phun từ bình phun sạch, cho phép chúng tiếp xúc
+              đầy đủ với bề mặt đã xử lý.
+            </p>
+            <p>
+              <strong>Lợi ích cho người dùng:</strong> Tránh hiện tượng "tác
+              động đẩy" thường gặp ở các sản phẩm truyền thống, đảm bảo côn
+              trùng tiếp xúc đủ với lượng thuốc gây chết và mang thuốc về nơi ẩn
+              nấp.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h4>Hiệu ứng lan truyền trong quần thể</h4>
+            <p>
+              <strong>Thông số kỹ thuật:</strong> Indoxacarb có cơ chế tác động
+              chậm (24-96 giờ), cho phép côn trùng tiếp tục di chuyển, và chuyển
+              giao hoạt chất đến các cá thể khác trong quần thể qua nhiều con
+              đường (tiếp xúc, chất bài tiết, hành vi chải lông, trao đổi thức
+              ăn).
+            </p>
+            <p>
+              <strong>Lợi ích cho người dùng:</strong> Tiêu diệt toàn bộ quần
+              thể bao gồm cả côn trùng ẩn nấp chưa tiếp xúc trực tiếp với thuốc,
+              với khả năng lan truyền đến "thế hệ thứ ba" trong quần thể côn
+              trùng.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: ỨNG DỤNG -->
+    <section id="application" class="section">
+      <span class="section-anchor" id="anchor-application"></span>
+
+      <div id="instructions">
+        <h2 class="section-title">Hướng Dẫn Sử Dụng</h2>
+
+        <div class="process">
+          <div class="process-name">Quy trình phun Arilon độc lập</div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <div class="step-title">Chuẩn bị dung dịch</div>
+                <p>
+                  Đổ nước một phần vào bình phun. Cân lượng Arilon theo tỷ lệ
+                  khuyến cáo (thông thường 5g/lít nước cho 20m²). Thêm Arilon đã
+                  cân vào bình phun và lắc đều. Đổ đầy bình phun với lượng nước
+                  còn lại và lắc kỹ để trộn đều hoàn toàn.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <div class="step-title">Khảo sát khu vực</div>
+                <p>
+                  Xác định vị trí ẩn nấp, đường đi, điểm vào và khu vực hoạt
+                  động của côn trùng. Tập trung vào khe nứt, kẽ hở, không gian
+                  rỗng, phía sau thiết bị và dưới các bề mặt nơi côn trùng
+                  thường ẩn nấp.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <div class="step-title">Thực hiện phun</div>
+                <p>
+                  Phun có mục tiêu vào khu vực đã xác định. Sử dụng thiết bị
+                  phun áp suất thấp để tạo giọt lớn. Đối với khe nứt và kẽ hở,
+                  sử dụng đầu phun hẹp để thuốc thâm nhập sâu vào nơi côn trùng
+                  ẩn nấp.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <div class="step-title">Theo dõi và tái xử lý</div>
+                <p>
+                  Kiểm tra hiệu quả sau 7-14 ngày. Có thể tái xử lý sau 7 ngày
+                  nếu nhiễm nặng. Duy trì chương trình xử lý định kỳ 1-2 tháng
+                  một lần để kiểm soát liên tục.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process">
+          <div class="process-name">
+            Quy trình kết hợp Arilon với gel diệt gián (hiệu quả tối ưu)
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <div class="step-title">Khảo sát và bắn gel trước</div>
+                <p>
+                  Khảo sát kỹ khu vực để xác định nơi trú ẩn của gián, tập trung
+                  vào khu vực nóng ẩm và có nguồn thức ăn. Bắn gel Advion kỹ vào
+                  các vị trí gián ẩn nấp và xuất hiện. Bắn gel trực tiếp ở khu
+                  vực khô ráo, sử dụng trạm bả gel ở khu vực có thể bị dội nước.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <div class="step-title">Chuẩn bị và phun Arilon</div>
+                <p>
+                  Sau khi hoàn tất việc bắn gel, pha dung dịch Arilon như hướng
+                  dẫn ở trên. Phun Arilon kỹ lên các khu vực đã xác định, có thể
+                  phun phủ lên các vị trí đã bắn gel. Lưu ý: bình phun Arilon
+                  phải tuyệt đối sạch, không được nhiễm các loại hóa chất khác.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <div class="step-title">Duy trì và luân phiên</div>
+                <p>
+                  Tuần 1-4: Kiểm tra hàng tuần, bổ sung gel ở khu vực gián ăn
+                  nhiều. Tháng 2: Khi mật độ gián giảm 80-90%, chuyển sang dùng
+                  gel Optigard để tránh kháng thuốc. Từ tháng 3: Duy trì kiểm
+                  tra và bổ sung gel định kỳ 1 lần/tháng.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin: 2rem 0; text-align: center">
+          <img
+            src="https://placehold.co/800x400/e2e8f0/9ca3af?text=Hình+ảnh+minh+họa+hướng+dẫn+sử+dụng+Arilon"
+            alt="Hình ảnh minh họa hướng dẫn sử dụng Arilon"
+            style="max-width: 100%; border-radius: var(--radius)"
+          />
+        </div>
+      </div>
+
+      <div id="environments">
+        <h2 class="section-title">Môi Trường Sử Dụng</h2>
+        <p>
+          Arilon Insecticide thể hiện tính linh hoạt cao, có thể được sử dụng
+          trong nhiều môi trường khác nhau từ thương mại đến công nghiệp, đặc
+          biệt phù hợp cho:
+        </p>
+
+        <div class="environments-grid">
+          <div class="environment-card">
+            <h4>Nhà hàng và quán ăn</h4>
+            <p>
+              Hiệu quả cao trong môi trường ăn uống, côn trùng không phát hiện
+              được thuốc nên không tránh né. Có thể sử dụng trong khu vực chuẩn
+              bị thức ăn, phòng kho khi thực phẩm được bảo quản an toàn. Thời
+              gian tồn lưu 30-60 ngày.
+            </p>
+          </div>
+
+          <div class="environment-card">
+            <h4>Cơ sở chế biến thực phẩm</h4>
+            <p>
+              Được chứng nhận HACCP cho môi trường nhạy cảm. Công thức mùi nhẹ
+              không làm nhiễm mùi vào thực phẩm. Không để lại vết trên bề mặt và
+              thiết bị. Giúp tuân thủ tiêu chuẩn an toàn thực phẩm, giảm thiểu
+              gián đoạn hoạt động.
+            </p>
+          </div>
+
+          <div class="environment-card">
+            <h4>Kho hàng và trung tâm phân phối</h4>
+            <p>
+              Kiểm soát hiệu quả diện tích rộng nhờ tính năng tồn lưu dài. Hiệu
+              ứng lan truyền đảm bảo kiểm soát toàn diện trong môi trường lưu
+              trữ phức tạp. Côn trùng di chuyển tự do qua khu vực xử lý, tối đa
+              hóa hiệu quả.
+            </p>
+          </div>
+
+          <div class="environment-card">
+            <h4>Không gian công cộng thương mại</h4>
+            <p>
+              An toàn sử dụng trong khu vực đông người khi áp dụng đúng cách.
+              Tác động môi trường thấp phù hợp với không gian chung. Kiểm soát
+              hiệu quả côn trùng gây phiền nhiễu ở sảnh tiếp tân, hành lang và
+              các khu vực công cộng khác.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="faq">
+        <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Arilon có thể sử dụng trong khu vực chuẩn bị thực phẩm không?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Có, Arilon có thể được sử dụng trong khu vực chuẩn bị thực phẩm
+              khi thực phẩm được che đậy hoặc di dời, và bề mặt tiếp xúc với
+              thực phẩm được bảo vệ. Sau khi xử lý, đảm bảo các bề mặt đã khô
+              hoàn toàn trước khi tiếp xúc với thực phẩm, và làm sạch bất kỳ bề
+              mặt tiếp xúc với thực phẩm nào trước khi sử dụng.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Tại sao Arilon hiệu quả với côn trùng kháng thuốc?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Indoxacarb trong Arilon thuộc nhóm hóa chất Oxadiazine (Nhóm 22A)
+              với cơ chế tác động khác biệt so với pyrethroid và nhiều loại
+              thuốc trừ sâu thông thường. Cơ chế chuyển hóa sinh học độc đáo và
+              tác động lên kênh natri của nó khiến ngay cả côn trùng đã phát
+              triển khả năng kháng với các loại thuốc trừ sâu khác vẫn bị ảnh
+              hưởng bởi Arilon.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Thời gian tồn lưu của Arilon là bao lâu?
+          </div>
+          <div class="faq-answer">
+            <p>
+              Arilon mang lại hiệu quả kiểm soát tồn lưu từ 30 đến 60 ngày trong
+              nhà và khoảng 30 ngày ngoài trời, tùy thuộc vào điều kiện môi
+              trường, lượng áp lực từ côn trùng và bề mặt được xử lý. Trong một
+              số trường hợp, hiệu quả trong nhà có thể kéo dài đến 90 ngày.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: TÀI LIỆU -->
+    <section id="documents" class="section">
+      <span class="section-anchor" id="anchor-documents"></span>
+
+      <div id="quality">
+        <h2 class="section-title">Cam Kết Chất Lượng</h2>
+
+        <h3 class="subsection-title">🏆 Thương Hiệu Toàn Cầu</h3>
+        <p>
+          <strong>Syngenta</strong> - công ty tiên phong trong lĩnh vực bảo vệ
+          thực vật và kiểm soát dịch hại, tạo ra ARILON dạng hạt phân tán trong
+          nước (WDG) với hoạt chất Indoxacarb độc đáo. ARILON đã được chứng nhận
+          HACCP tại Australia và Philippines, phù hợp cho các môi trường nhạy
+          cảm về vệ sinh an toàn thực phẩm.
+        </p>
+
+        <h3 class="subsection-title">✅ Chứng Nhận Quốc Tế</h3>
+        <ul class="bullet">
+          <li>
+            <strong>Chứng nhận HACCP quốc tế</strong> - Đã được cấp tại
+            Australia và Philippines
+          </li>
+          <li>
+            <strong>Tiêu chuẩn Syngenta toàn cầu</strong> - Sản xuất theo quy
+            trình chất lượng quốc tế
+          </li>
+          <li>
+            <strong>Non-pyrethroid</strong> - Không chứa pyrethroid, hiệu quả
+            với dòng kháng thuốc
+          </li>
+          <li>
+            <strong>IRAC Group 22A</strong> - Indoxacarb - Phân loại quốc tế
+            chính thức
+          </li>
+          <li>
+            <strong>WDG Formulation</strong> - Dạng hạt phân tán trong nước tiên
+            tiến
+          </li>
+        </ul>
+
+        <h3 class="subsection-title">🛡️ Đăng Ký Hợp Pháp Tại Việt Nam</h3>
+        <ul class="bullet">
+          <li>
+            <strong>Giấy chứng nhận:</strong> Từ Cục Quản lý Môi trường Y tế, Bộ
+            Y tế Việt Nam
+          </li>
+          <li>
+            <strong>Độ an toàn:</strong> Chỉ số LD50 cao, an toàn cho người sử
+            dụng
+          </li>
+          <li>
+            <strong>Ứng dụng:</strong> Đa dạng - kiểm soát gián, kiến, ruồi hiệu
+            quả
+          </li>
+        </ul>
+
+        <h3 class="subsection-title">📎 Tài liệu đính kèm</h3>
+        <div class="download-box">
+          <div class="download-item">
+            <span>Phiếu An Toàn Hóa Chất (MSDS) - Arilon.pdf</span>
+            <a href="#" target="_blank">(1.2MB) ⭳</a>
+          </div>
+          <div class="download-item">
+            <span>Hướng Dẫn Sử Dụng Chi Tiết - Arilon.pdf</span>
+            <a href="#" target="_blank">(2.5MB) ⭳</a>
+          </div>
+          <div class="download-item">
+            <span>Giấy chứng nhận đăng ký lưu hành sản phẩm.pdf</span>
+            <a href="#" target="_blank">(1.2MB) ⭳</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="purchase">
+        <h2 class="section-title">Thông Tin Mua Hàng</h2>
+        <p>
+          <strong>Arilon Insecticide</strong> được phân phối thông qua hệ thống
+          đối tác phân phối chính thức của Syngenta PPM tại Việt Nam. Sản phẩm
+          có sẵn với quy cách hũ 200g.
+        </p>
+        <p>
+          Để mua hàng chính hãng, vui lòng liên hệ các đại lý ủy quyền phân phối
+          thiết bị và hóa chất PCO trên toàn quốc. Syngenta sẵn sàng đồng hành
+          cung cấp tư vấn kỹ thuật và đào tạo từ kinh nghiệm toàn cầu.
+        </p>
+      </div>
+
+      <div id="support">
+        <h2 class="section-title">Thông Tin Hỗ Trợ</h2>
+        <p>
+          Để được tư vấn chi tiết về <strong>Arilon Insecticide</strong>, vui
+          lòng liên hệ:
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>lienhe.syngenta@syngenta.com</div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>+84 28 37756200</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related products -->
+    <section class="related">
+      <h2 class="section-title">Sản Phẩm Liên Quan</h2>
+
+      <div class="card-row">
+        <div class="product-card">
+          <div class="product-card-image">
+            <img
+              src="https://lh3.googleusercontent.com/d/1ncRBzkELw-b_WSoeDPJY3-fZcENvmcYj"
+              alt="Advion Cockroach Gel"
+            />
+          </div>
+          <div class="product-card-content">
+            <span class="product-card-category">BẢ GEL DIỆT GIÁN</span>
+            <h3 class="product-card-title">Advion Cockroach Gel</h3>
+            <div class="product-card-specs">
+              Indoxacarb 0,6%<br />
+              Bả gel chuyên dụng
+            </div>
+            <a href="/advion-cockroach-gel" class="product-card-link"
+              >Xem thêm →</a
+            >
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img
+              src="https://lh3.googleusercontent.com/d/1-2Hb-K2GV6L3bnXkz_Ux4Hu9qwIzylFt"
+              alt="Optigard Cockroach Bait"
+            />
+          </div>
+          <div class="product-card-content">
+            <span class="product-card-category">BẢ GEL DIỆT GIÁN</span>
+            <h3 class="product-card-title">Optigard Cockroach Bait</h3>
+            <div class="product-card-specs">
+              Emamectin Benzoate 0,1%<br />
+              Công nghệ mới
+            </div>
+            <a href="/optigard-cockroach-bait" class="product-card-link"
+              >Xem thêm →</a
+            >
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img
+              src="https://lh3.googleusercontent.com/d/1w5-DLFyr8AOmh55C2e9MrYbtOuXi1nSA"
+              alt="Optigard AB 100"
+            />
+          </div>
+          <div class="product-card-content">
+            <span class="product-card-category">BẢ GEL DIỆT KIẾN</span>
+            <h3 class="product-card-title">Optigard AB 100</h3>
+            <div class="product-card-specs">
+              Thiamethoxam 0,01%<br />
+              Bả gel diệt kiến
+            </div>
+            <a href="/optigard-ab-100" class="product-card-link">Xem thêm →</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-card-image">
+            <img
+              src="https://lh3.googleusercontent.com/d/1IIHJVQOy6e72GuCVIWH1uhoDxDebaSbU"
+              alt="Icon 10 CS"
+            />
+          </div>
+          <div class="product-card-content">
+            <span class="product-card-category">THUỐC PHUN TỒN LƯU</span>
+            <h3 class="product-card-title">Icon 10 CS</h3>
+            <div class="product-card-specs">
+              Lambda-cyhalothrin 10%<br />
+              Luân phiên hoạt chất
+            </div>
+            <a href="/icon-10cs" class="product-card-link">Xem thêm →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bộ 3 kiểm soát toàn diện -->
+      <div class="bundle-promotion">
+        <div class="bundle-card">
+          <div class="bundle-header">
+            <span class="bundle-tag">BỘ 3 KIỂM SOÁT TOÀN DIỆN</span>
+            <h3 class="bundle-title">Giải Pháp Tổng Thể Diệt Gián & Kiến</h3>
+          </div>
+          <div class="bundle-content">
+            <div class="bundle-products">
+              <div class="bundle-item">
+                <img
+                  src="https://lh3.googleusercontent.com/d/1UUp6LVmEGDhkyrXFqLxj3WcIP39lsWa-"
+                  alt="Arilon"
+                />
+                <span>Arilon</span>
+              </div>
+              <span class="bundle-plus">+</span>
+              <div class="bundle-item">
+                <img
+                  src="https://lh3.googleusercontent.com/d/1ncRBzkELw-b_WSoeDPJY3-fZcENvmcYj"
+                  alt="Advion"
+                />
+                <span>Advion</span>
+              </div>
+              <span class="bundle-plus">+</span>
+              <div class="bundle-item">
+                <img
+                  src="https://lh3.googleusercontent.com/d/1-2Hb-K2GV6L3bnXkz_Ux4Hu9qwIzylFt"
+                  alt="Optigard"
+                />
+                <span>Optigard</span>
+              </div>
+            </div>
+            <div class="bundle-benefits">
+              <ul>
+                <li>Phun diệt côn trùng di chuyển, bả tiêu diệt tổ</li>
+                <li>Kiểm soát toàn diện gián, kiến và ruồi</li>
+                <li>Kết hợp hoàn hảo cho nhà hàng, khách sạn</li>
+              </ul>
+            </div>
+            <a href="/bo-3-kiem-soat-gian" class="bundle-cta"
+              >Tìm hiểu bộ sản phẩm →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* Thêm CSS cho bundle promotion */
+      .bundle-promotion {
+        margin-top: 60px;
+        padding: 40px 0;
+        background-color: #f8fafb;
+        border-radius: 16px;
+      }
+
+      .bundle-card {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .bundle-header {
+        margin-bottom: 30px;
+      }
+
+      .bundle-tag {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #009639;
+        color: white;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+      }
+
+      .bundle-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin: 0;
+      }
+
+      .bundle-products {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .bundle-item {
+        text-align: center;
+      }
+
+      .bundle-item img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 8px;
+      }
+
+      .bundle-item span {
+        display: block;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .bundle-plus {
+        font-size: 24px;
+        color: #009639;
+        font-weight: 700;
+      }
+
+      .bundle-benefits {
+        max-width: 500px;
+        margin: 0 auto 30px;
+      }
+
+      .bundle-benefits ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      .bundle-benefits li {
+        padding: 8px 0;
+        padding-left: 24px;
+        position: relative;
+        color: #555;
+        font-size: 16px;
+      }
+
+      .bundle-benefits li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #009639;
+        font-weight: 700;
+      }
+
+      .bundle-cta {
+        display: inline-block;
+        padding: 14px 40px;
+        background-color: #009639;
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .bundle-cta:hover {
+        background-color: #007a2e;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 150, 57, 0.3);
+      }
+    </style>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-col">
+          <h3>Liên Hệ</h3>
+          <div class="footer-contact">
+            <span>📞</span>
+            <span>+84 28 37756200</span>
+          </div>
+          <div class="footer-contact">
+            <span>🏢</span>
+            <span>+84 28 37756298/99</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Liên Kết Nhanh</h3>
+          <ul>
+            <li><a href="#">Sản Phẩm</a></li>
+            <li><a href="#">Giải Pháp Cây Trồng</a></li>
+            <li><a href="#">Về Chúng Tôi</a></li>
+            <li><a href="#">Tin Tức & Bài Viết</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Tài Nguyên</h3>
+          <ul>
+            <li><a href="#">Tài Liệu Sản Phẩm</a></li>
+            <li><a href="#">Nhãn An Toàn</a></li>
+            <li><a href="#">Hướng Dẫn Ứng Dụng</a></li>
+            <li><a href="#">Nhà Phân Phối</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Mạng Xã Hội</h3>
+          <div class="social-links">
+            <a href="#" class="social-icon">𝕏</a>
+            <a href="#" class="social-icon">f</a>
+            <a href="#" class="social-icon">▶</a>
+          </div>
+          <address
+            style="margin-top: 1rem; font-style: normal; font-size: 0.9rem"
+          >
+            Syngenta Việt Nam<br />
+            16F – Pearl Plaza, 561A Điện Biên Phủ,<br />
+            Phường 25, Quận Bình Thạnh, Tp.HCM
+          </address>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © <span id="year"></span> Syngenta. Bảo lưu mọi quyền.
+        <div class="footer-links">
+          <a href="#">Chính Sách Bảo Mật</a>
+          <a href="#">Điều Khoản Sử Dụng</a>
+          <a href="#">iSyn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Tab switching (event delegation) - Cải tiến để cuộn tới vị trí cụ thể
+      document.querySelector("#tabNav nav").addEventListener("click", (e) => {
+        const btn = e.target.closest(".tab-link");
+        if (!btn) return;
+
+        // Đánh dấu tab đang active
+        document
+          .querySelectorAll(".tab-link")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Hiển thị section tương ứng
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => s.classList.remove("active"));
+        document.getElementById(btn.dataset.target).classList.add("active");
+
+        // Cuộn đến section-anchor tương ứng
+        const anchor = document.getElementById(`anchor-${btn.dataset.target}`);
+        if (anchor) {
+          // Sử dụng setTimeout để đảm bảo section đã được hiển thị trước khi cuộn
+          setTimeout(() => {
+            const tabsHeight = document.querySelector(".tabs").offsetHeight;
+            const anchorPosition =
+              anchor.getBoundingClientRect().top + window.pageYOffset;
+            // Trừ đi chiều cao của thanh tabs + khoảng trống bổ sung (20px)
+            window.scrollTo({
+              top: anchorPosition - tabsHeight - 20,
+              behavior: "smooth",
+            });
+          }, 10);
+        }
+      });
+
+      // Xử lý hiệu ứng bóng cho thanh tabs khi cuộn
+      window.addEventListener("scroll", () => {
+        const tabs = document.querySelector(".tabs");
+        const scrollPosition = window.scrollY;
+
+        // Thêm bóng cho tabs khi đã cuộn xuống
+        if (scrollPosition > 100) {
+          tabs.classList.add("scrolled");
+        } else {
+          tabs.classList.remove("scrolled");
+        }
+      });
+
+      // Thumbnail switching
+      document.querySelectorAll(".thumbnail").forEach((thumb, index) => {
+        thumb.addEventListener("click", () => {
+          document
+            .querySelectorAll(".thumbnail")
+            .forEach((t) => t.classList.remove("active"));
+          thumb.classList.add("active");
+          // Here you would switch the main image if you had multiple product images
+          console.log(`Switched to image ${index + 1}`);
+        });
+      });
+
+      // References toggle
+      document.querySelectorAll(".reference-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const refId = header.getAttribute("data-ref");
+          const content = document.getElementById(`ref-${refId}`);
+          const toggle = header.querySelector(".reference-toggle");
+
+          if (content.classList.contains("active")) {
+            content.classList.remove("active");
+            toggle.textContent = "+";
+          } else {
+            content.classList.add("active");
+            toggle.textContent = "-";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
